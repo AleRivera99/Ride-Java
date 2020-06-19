@@ -51,7 +51,7 @@ public class MapDriverActivity extends AppCompatActivity implements OnMapReadyCa
 
         mMap.moveCamera(CameraUpdateFactory.newCameraPosition(
                 new CameraPosition.Builder()
-                                    .target(new LatLng(1.22122, -77.12222))
+                                    .target(new LatLng(1.22122, -77.12223))
                 .zoom(6f)
                 .build()
         ));

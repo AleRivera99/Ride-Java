@@ -65,6 +65,7 @@ import com.proyecto.proyectotransporte.providers.AuthProvider;
 import com.proyecto.proyectotransporte.providers.GeofireProvider;
 
 import com.proyecto.proyectotransporte.providers.AuthProvider;
+import com.proyecto.proyectotransporte.providers.TokenProvider;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -79,6 +80,7 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
     private FusedLocationProviderClient mFusedLocation;
 
     private GeofireProvider mGeofireProvider;
+    private TokenProvider mTokenProvider;
 
     private final static int LOCATION_REQUEST_CODE = 1;
     private final static int SETTINGS_REQUEST_CODE = 2;
@@ -139,6 +141,7 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
 
         mAuthProvider = new AuthProvider();
         mGeofireProvider = new GeofireProvider();
+        mTokenProvider = new TokenProvider();
         mFusedLocation = LocationServices.getFusedLocationProviderClient(this);
 
         mMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -160,6 +163,7 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
                 requestDriver();
             }
         });
+        generateToken();
     }
 
     private void requestDriver() {
@@ -444,5 +448,8 @@ public class MapClientActivity extends AppCompatActivity implements OnMapReadyCa
         Intent intent = new Intent(MapClientActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+    void generateToken() {
+        mTokenProvider.create(mAuthProvider.getId());
     }
 }

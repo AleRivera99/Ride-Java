@@ -46,6 +46,7 @@ import com.proyecto.proyectotransporte.activities.client.MapClientActivity;
 import com.proyecto.proyectotransporte.includes.Mytoolbar;
 import com.proyecto.proyectotransporte.providers.AuthProvider;
 import com.proyecto.proyectotransporte.providers.GeofireProvider;
+import com.proyecto.proyectotransporte.providers.TokenProvider;
 
 public class MapDriverActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
@@ -58,7 +59,7 @@ public class MapDriverActivity extends AppCompatActivity implements OnMapReadyCa
 
     private final static int LOCATION_REQUEST_CODE = 1;
     private final static int SETTINGS_REQUEST_CODE = 2;
-
+    private TokenProvider mTokenProvider;
     private Marker mMarker;
 
     private Button mButtonConnect;
@@ -107,6 +108,7 @@ public class MapDriverActivity extends AppCompatActivity implements OnMapReadyCa
 
         mAuthProvider = new AuthProvider();
         mGeofireProvider = new GeofireProvider();
+        mTokenProvider = new TokenProvider();
 
         mFusedLocation = LocationServices.getFusedLocationProviderClient(this);
 
@@ -125,6 +127,7 @@ public class MapDriverActivity extends AppCompatActivity implements OnMapReadyCa
                 }
             }
         });
+        generateToken();
     }
 
     private void updateLocation() {
@@ -284,5 +287,8 @@ public class MapDriverActivity extends AppCompatActivity implements OnMapReadyCa
         Intent intent = new Intent(MapDriverActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+    void generateToken() {
+        mTokenProvider.create(mAuthProvider.getId());
     }
 }

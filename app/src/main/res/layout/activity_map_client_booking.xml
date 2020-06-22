@@ -8,6 +8,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MAPA DE EL VIAJE DEL CLIENTE" ></TextView>
+        android:text="MAPA DE EL VIAJE DEL CLIENTEE" ></TextView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,10 +18,10 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         />
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/btnConnect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cerrar Session"
+        android:text="CONECTARSE"
         android:layout_gravity="bottom"
         android:layout_margin="30dp"
         android:textColor="@color/colorWhite"

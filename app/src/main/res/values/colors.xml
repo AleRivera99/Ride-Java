@@ -6,4 +6,5 @@
     <color name="colorWhite">#ffff</color>
     <color name="coloBotonConductor">#C6A18E</color>
     <color name="ColoBotonCliente">#D4CFCC</color>
+    <color name="BtnGeneral">#93603D</color>
 </resources>
